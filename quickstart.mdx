@@ -1,0 +1,133 @@
+---
+title: Quickstart Guide
+description: Set up your Samosa GG documentation space quickly and start creating your first project docs.
+---
+
+## Overview
+
+Get started with Samosa GG in minutes. You create an account, set up your first documentation space, import existing content, and navigate the interface. This guide walks you through each step with code examples and best practices.
+
+<Callout kind="tip">
+
+Prepare your GitHub account for seamless integration. Samosa GG syncs directly with repositories for version-controlled docs.
+
+</Callout>
+
+## Create Your Account
+
+Follow these steps to sign up.
+
+<Steps>
+  <Step title="Visit Samosa GG" icon="globe">
+    Go to [app.samosagg.com](https://app.samosagg.com) and click **Sign Up**.
+  </Step>
+  <Step title="Enter Details" icon="user-plus">
+    Provide your email, username, and password. Verify your email via the confirmation link.
+  </Step>
+  <Step title="Connect GitHub" icon="github">
+    Authorize Samosa GG to access your GitHub repositories. This enables repo imports.
+  </Step>
+</Steps>
+
+## Set Up Your First Documentation Space
+
+Create a space to organize your project docs.
+
+<Steps>
+  <Step title="Create Space" icon="plus">
+    From the dashboard, click **New Space**. Name it `{your-project}-docs`, e.g., `samosa-gg-docs`.
+  </Step>
+  <Step title="Configure Settings" icon="settings">
+    Set the brand color to `#3B82F6`. Add your domain under **Custom Domain**.
+  </Step>
+  <Step title="Add First Page" icon="file-text">
+    Create `index.mdx` with basic frontmatter:
+
+    ```yaml
+    ---
+    title: Welcome to Samosa GG
+    description: Your project documentation hub.
+    ---
+    ## Hello World
+    Start editing here.
+    ```
+  </Step>
+</Steps>
+
+## Import Existing Content
+
+Bring in your Markdown or GitHub repo content using these methods.
+
+<Tabs>
+  <Tab title="GitHub Repo" icon="github">
+    <Steps>
+      <Step title="Select Repo">
+        In your space, click **Import > GitHub**. Choose `your-username/samosa-docs`.
+      </Step>
+      <Step title="Sync Settings">
+        Enable auto-sync every `{5}` minutes. Map `/docs` folder to root.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Markdown Files" icon="file-text">
+    Upload files directly:
+
+    ```markdown
+    <!-- example.mdx -->
+    ---
+    title: API Reference
+    ---
+    ## Endpoints
+    Use `POST /api/v1/users`.
+    ```
+  </Tab>
+  <Tab title="Static Site" icon="upload">
+    Drag and drop your built site or zip. Samosa GG converts HTML to MDX automatically.
+  </Tab>
+</Tabs>
+
+<CodeGroup tabs="CLI,API">
+  ```bash
+  # Install CLI
+  npm install -g @samosagg/cli
+
+  # Import repo
+  samosa import --space=my-space --repo=your-username/samosa-docs --branch=main
+  ```
+  ```javascript
+  // API example
+  const response = await fetch('https://api.samosagg.com/v1/spaces/my-space/import', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${YOUR_API_KEY}` },
+    body: JSON.stringify({ repo: 'your-username/samosa-docs' })
+  });
+  ```
+</CodeGroup>
+
+## Basic Navigation
+
+Explore the interface with these key areas.
+
+<Columns cols={3}>
+  <Card title="Dashboard" icon="layout" href="/dashboard">
+    View all spaces and recent edits.
+  </Card>
+  <Card title="Editor" icon="edit-3" href="/editor">
+    Real-time MDX editing with live preview.
+  </Card>
+  <Card title="Preview" icon="eye" href="/preview">
+    Publish and share docs instantly.
+  </Card>
+</Columns>
+
+<Expandable title="Advanced Navigation Tips" default-open="false">
+
+Use keyboard shortcuts: <kbd>Ctrl</kbd>+<kbd>S</kbd> to save, <kbd>Ctrl</kbd>+<kbd>K</kbd> for search. Customize sidebar via **Settings > Navigation**.
+
+</Expandable>
+
+<Callout kind="info">
+
+Your docs are live at `{your-space}.samosagg.com`. Share the URL with your team.
+
+</Callout>

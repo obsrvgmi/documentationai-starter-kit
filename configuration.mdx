@@ -1,0 +1,124 @@
+---
+title: Customizing Your Docs
+description: Configure themes, settings, and advanced options to tailor your documentation to your brand.
+---
+
+## Overview
+
+Tailor Samosa GG Documentation to match your brand by adjusting themes, colors, SEO, and export options. Start with your brand color `#3B82F6` to create a cohesive look. Use the configuration panel or edit files directly for full control.
+
+<Columns cols={3}>
+  <Card title="Brand Colors" icon="palette" href="#brand-colors">
+    Apply your primary color like `#3B82F6`.
+  </Card>
+  <Card title="Themes & Layouts" icon="layout" href="#themes">
+    Customize headers, footers, and navigation.
+  </Card>
+  <Card title="SEO Settings" icon="search" href="#seo">
+    Optimize for search engines and sharing.
+  </Card>
+</Columns>
+
+## Apply Brand Colors
+
+Set your primary brand color to `#3B82F6` for buttons, links, and accents. You access this through the dashboard or config file.
+
+<Steps>
+  <Step title="Open Settings" icon="settings">
+    Navigate to **Project Settings** > **Theme**.
+  </Step>
+  <Step title="Enter Color" icon="palette">
+    Paste `#3B82F6` into the **Primary Color** field.
+  </Step>
+  <Step title="Preview & Save" icon="save">
+    Preview changes and click **Apply**.
+
+    <Callout kind="tip">
+      Changes apply site-wide instantly.
+    </Callout>
+  </Step>
+</Steps>
+
+## Custom Themes and Layouts
+
+Choose between predefined themes or build custom ones. Edit layouts for sidebars, headers, and custom components.
+
+<Tabs>
+  <Tab title="UI Editor" icon="edit-3">
+    Use the drag-and-drop editor:
+
+    <CodeGroup tabs="JSON Config">
+      ```json
+      {
+        "theme": {
+          "primaryColor": "#3B82F6",
+          "fontFamily": "Inter, sans-serif"
+        },
+        "layout": {
+          "sidebar": true,
+          "search": true
+        }
+      }
+      ```
+    </CodeGroup>
+  </Tab>
+  <Tab title="Config File" icon="file">
+    Edit `samosa.config.js` in your repo root:
+
+    ```javascript
+    module.exports = {
+      theme: {
+        colors: {
+          primary: '#3B82F6',
+          secondary: '#1E40AF'
+        }
+      }
+    };
+    ```
+  </Tab>
+</Tabs>
+
+<Expandable title="Advanced Layout Options" default-open="false">
+  Override default components with custom MDX. Add `{customSidebar}` to pages for branded navigation.
+</Expandable>
+
+## SEO and Sharing Settings
+
+Optimize your docs for search engines and social sharing. Configure meta tags, Open Graph images, and sitemaps.
+
+| Setting          | Description                          | Example Value                  |
+|------------------|--------------------------------------|--------------------------------|
+| Site Title       | Display title for all pages          | Samosa GG Documentation        |
+| Description      | Meta description                     | Your project docs hub          |
+| OG Image         | Social sharing image                 | `/og-image.png`                |
+| Keywords         | SEO keywords                         | docs, api, developer           |
+| Canonical URL    | Prevent duplicate content issues     | `https://docs.samosagg.com`    |
+
+<Callout kind="info">
+  Enable sitemap auto-generation for better crawling.
+</Callout>
+
+## Export and Version Control
+
+Export your docs as static sites or PDFs. Integrate with Git for version control.
+
+<Columns cols={2}>
+  <Card title="Static Export" icon="download" horizontal>
+    Generate HTML for hosting on Vercel or Netlify.
+  </Card>
+  <Card title="Git Sync" icon="git-branch" horizontal>
+    Push changes to GitHub with automatic previews.
+  </Card>
+</Columns>
+
+```javascript
+// Example export script
+const samosa = require('samosa-gg-sdk');
+samosa.export({
+  format: 'static',
+  output: './dist',
+  theme: 'custom'
+});
+```
+
+Track changes with branches like `docs/v2.0` for versioned docs. Use tags `{version}` in frontmatter for dynamic switching.

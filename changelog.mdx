@@ -1,0 +1,159 @@
+---
+title: Changelog
+description: Track updates and improvements to Samosa GG with our version history.
+---
+
+## Overview
+
+Stay informed about the latest releases, features, and fixes in Samosa GG. You review changes here to understand new capabilities and plan your updates.
+
+<Callout kind="info">
+  Breaking changes appear with `{"breaking"}` tags. Test in staging before production.
+</Callout>
+
+<Columns cols={3}>
+  <Card title="Report a Bug" icon="bug" href="https://github.com/samosagg/samosa-gg/issues/new?template=bug_report.md" target="_blank">
+    Found an issue? Submit it directly.
+  </Card>
+  <Card title="Request Feature" icon="sparkles" href="https://github.com/samosagg/samosa-gg/issues/new?template=feature_request.md" target="_blank">
+    Suggest improvements.
+  </Card>
+  <Card title="GitHub Releases" icon="github" href="https://github.com/samosagg/samosa-gg/releases" target="_blank">
+    Full release notes and downloads.
+  </Card>
+</Columns>
+
+## Recent Releases
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time collaboration for documentation editing.
+- Introduced version pinning for stable deployments.
+
+## Improvements
+
+- Enhanced search performance by `>50%`.
+- Optimized image uploads with lazy loading.
+
+## Bug Fixes
+
+- Fixed markdown parsing for nested lists.
+- Resolved authentication timeout on long sessions.
+
+```javascript
+// New collaboration API example
+import { SamosaGG } from '@samosagg/client';
+
+const client = new SamosaGG({ apiKey: 'YOUR_API_KEY' });
+await client.docs.share('doc-id', { users: ['user1@example.com'] });
+```
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Dark mode toggle with automatic detection.
+- Custom CSS themes via project settings.
+
+## Bug Fixes
+
+- Corrected table rendering in preview mode.
+- Patched cross-site scripting in user inputs.
+
+<CodeGroup tabs="JavaScript,Python">
+```javascript
+// Check your version
+console.log(SamosaGG.version); // v1.1.0
+```
+```python
+# Check your version
+import samosagg
+print(samosagg.__version__)  # v1.1.0
+```
+</CodeGroup>
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["breaking", "feature"]}>
+
+## Breaking Changes
+
+- Removed legacy v0.x API endpoints. Migrate to `/v1/docs`.
+
+## New Features
+
+- Core documentation engine with MDX support.
+- User authentication and project management.
+
+## Initial Setup
+
+Run the following to get started:
+
+```bash
+npm create samosa-gg@latest my-project
+cd my-project
+npm run dev
+```
+
+</Update>
+
+## Upcoming Changes
+
+<Expandable title="Preview v1.3.0 Features" default-open="false">
+
+You can expect AI-assisted editing and advanced analytics in the next release. Provide feedback on GitHub.
+
+- Auto-generate table of contents.
+- Usage metrics dashboard.
+
+</Expandable>
+
+## Stay Updated
+
+Follow these steps to receive notifications about new releases.
+
+<Steps>
+  <Step title="Watch on GitHub" icon="github">
+    Visit the [Samosa GG repository](https://github.com/samosagg/samosa-gg) and click Watch &gt; Releases.
+  </Step>
+  <Step title="Subscribe to Newsletter" icon="mail">
+    Sign up at [samosagg.com/newsletter](https://samosagg.com/newsletter).
+  </Step>
+  <Step title="Join Discord" icon="message-circle">
+    Get instant updates in our [Discord server](https://discord.gg/samosagg).
+  </Step>
+</Steps>
+
+<Tabs>
+  <Tab title="Release Channels" icon="rss">
+    
+| Channel     | Frequency   | Details                  |
+|-------------|-------------|--------------------------|
+| GitHub     | On release | Full changelogs, assets |
+| Newsletter | Monthly    | Highlights only         |
+| Discord    | Immediate  | Live announcements      |
+
+  </Tab>
+  <Tab title="Check Version in Code" icon="code">
+    
+```javascript
+// JavaScript/Node.js
+import pkg from 'samosa-gg';
+console.log(pkg.version);
+```
+
+```bash
+# CLI version check
+samosa-gg --version
+```
+
+  </Tab>
+</Tabs>
+
+<Callout kind="tip">
+  Pin versions in `package.json` for stability: `"samosa-gg": "1.2.0"`.
+</Callout>
