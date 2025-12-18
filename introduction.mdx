@@ -1,28 +1,33 @@
 ---
 title: Welcome to Samosa GG Documentation
-description: An overview of Samosa GG, a platform for organizing and managing project documentation with ease.
+description: 'A Social Trading Layer for Perps, Spot and Analytics powered by Decibel Trade'
 ---
+Samosa is a Social trading layer that unifies execution, analytics, and community letting traders act on data and discussions in real time. Powered by Decibel.
 
-## Overview
+At its core, Samosa is a **Telegram based trading bot and terminal** that puts the market right in your pocket. You can trade spot and perps directly inside Telegram, without switching apps. When you need deeper tools, you can easily move to a full web trading terminal.
 
-Samosa GG provides a centralized platform where you organize and manage all your project documentation. You create custom spaces, collaborate with teams, and keep everything up to date with version control and real-time editing.
+Samosa offers a range of features designed to improve efficiency and engagement, including copy trading, yield generating opportunities, group leaderboards, and counter trading. These features allow traders to operate with speed, flexibility, and convenience from one unified platform.
 
-<Callout kind="success">
-Samosa GG streamlines your documentation workflow, saving you hours on maintenance.
+Samosa includes a dedicated **Market Intelligence layer** that supports informed trading decisions. This layer provides comprehensive data and insights such as ticker analysis, liquidation maps, wallet analytics, top traders, most-copied traders, market overviews, spot premiums, Decibel statistics, trader insights, live trader feeds, vault details, etc.
+
+<Callout kind="success" collapsed="false">
+  Samosa GG streamlines your documentation workflow, saving you hours on maintenance.
 </Callout>
 
 ## Key Features and Benefits
 
 Samosa GG offers powerful tools that make documentation effortless. You benefit from intuitive interfaces, seamless integrations, and robust search capabilities.
 
-<Columns cols={3}>
-  <Card title="Custom Spaces" icon="folder" href="/docs/spaces">
+<Columns cols="3">
+  <Card title="Custom Spaces" href="/docs/spaces" icon="folder" horizontal="false">
     Organize docs into tailored spaces for different projects or teams.
   </Card>
-  <Card title="Real-time Collaboration" icon="users" href="/docs/collaboration">
+
+  <Card title="Real-time Collaboration" href="/docs/collaboration" icon="users" horizontal="false">
     Edit documents together with live previews and comments.
   </Card>
-  <Card title="Version History" icon="git-branch" href="/docs/versions">
+
+  <Card title="Version History" href="/docs/versions" icon="git-branch" horizontal="false">
     Track changes and revert to previous versions instantly.
   </Card>
 </Columns>
@@ -32,16 +37,19 @@ Samosa GG offers powerful tools that make documentation effortless. You benefit 
 You set up Samosa GG quickly with these steps. Follow them to create your first documentation space.
 
 <Steps>
-  <Step title="Sign Up" icon="user-plus">
+  <Step title="Sign Up" icon="user-plus" title-type="p">
     Visit samosa.gg and create your account using email or GitHub.
   </Step>
-  <Step title="Create a Space" icon="plus">
+
+  <Step title="Create a Space" icon="plus" title-type="p">
     Click "New Space" and name it for your project, like "API Docs".
   </Step>
-  <Step title="Add Content" icon="edit-3">
+
+  <Step title="Add Content" icon="edit-3" title-type="p">
     Start writing MDX pages or import from Markdown files.
   </Step>
-  <Step title="Publish" icon="globe">
+
+  <Step title="Publish" icon="globe" title-type="p">
     Make your space public or share with specific team members.
   </Step>
 </Steps>
@@ -49,13 +57,16 @@ You set up Samosa GG quickly with these steps. Follow them to create your first 
 <Tabs>
   <Tab title="npm" icon="package">
     Install the CLI for local development:
+
     ```bash
     npm install -g @samosa-gg/cli
     samosa init my-space
     ```
   </Tab>
+
   <Tab title="GitHub" icon="github">
     Connect your repo for automatic sync:
+
     ```bash
     git remote add samosa https://git.samosa.gg/your-org/docs.git
     git push samosa main
@@ -72,6 +83,7 @@ Follow these guidelines to maintain consistency across your documentation.
     Use the brand color `{ #3B82F6 }` for accents and links. It represents trust and professionalism.
 
     Example CSS:
+
     ```css
     :root {
       --brand-color: #3B82F6;
@@ -81,31 +93,35 @@ Follow these guidelines to maintain consistency across your documentation.
     }
     ```
   </Expandable>
-  <Expandable title="Typography">
+
+  <Expandable title="Typography" default-open="false">
     Stick to sans-serif fonts like Inter or system defaults for readability.
   </Expandable>
-  <Expandable title="Icons">
+
+  <Expandable title="Icons" default-open="false">
     Use Lucide icons matching the `{ #3B82F6 }` theme for visual consistency.
   </Expandable>
 </ExpandableGroup>
 
-<Callout kind="tip">
-Customize your space theme with the brand color `{ #3B82F6 }` in settings for a unified look.
+<Callout kind="tip" collapsed="false">
+  Customize your space theme with the brand color `{ #3B82F6 }` in settings for a unified look.
 </Callout>
 
-<CodeGroup tabs="JavaScript,Python">
-```javascript
-// Embed Samosa GG docs in your app
-import { SamosaEmbed } from '@samosa-gg/embed';
+<CodeGroup show-lines="true" tabs={[]}>
+  ```javascript
+  // Embed Samosa GG docs in your app
+  import { SamosaEmbed } from '@samosa-gg/embed';
 
-<SamosaEmbed spaceId="your-space-id" themeColor="#3B82F6" />
-```
-```python
-# Python SDK example
-from samosa import Client
+  <SamosaEmbed spaceId="your-space-id" themeColor="#3B82F6" />
+  ```
 
-client = Client(api_key="YOUR_API_KEY")
-space = client.spaces.get("your-space-id")
-print(space.render(theme_color="#3B82F6"))
-```
+  ```python
+  # Python SDK example
+  from samosa import Client
+
+  client = Client(api_key="YOUR_API_KEY")
+  space = client.spaces.get("your-space-id")
+  print(space.render(theme_color="#3B82F6"))
+  ```
 </CodeGroup>
+
